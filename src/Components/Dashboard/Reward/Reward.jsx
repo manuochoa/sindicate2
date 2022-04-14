@@ -27,7 +27,9 @@ const Reward = () => {
         <span>
           Rebases <br /> Every 30 min
         </span>
-        <Countdown date={nextRebase} renderer={countdownRenderer} />
+        {nextRebase && (
+          <Countdown date={nextRebase} renderer={countdownRenderer} />
+        )}
       </div>
       <div className={classes.info}>
         <p className={classes.infoTitle}>NEXT REWARD</p>
