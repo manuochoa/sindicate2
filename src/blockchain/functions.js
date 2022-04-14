@@ -59,10 +59,12 @@ export const getQuote = async (_amount, path, quoteType) => {
 export const Approve = async (address, signer) => {
   try {
     let newInstance = new ethers.Contract(address, tokenABI, signer);
-    let receipt = await newInstance.approve(
+    let tx = await newInstance.approve(
       routerAddress,
       "115792089237316195423570985008687907853269984665640564039457584007913129639935"
     );
+
+    let receipt = await tx.wait();
 
     return receipt;
   } catch (error) {
