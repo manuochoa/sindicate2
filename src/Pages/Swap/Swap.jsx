@@ -101,6 +101,11 @@ const Swap = (props) => {
     }
   };
 
+  const switchSides = () => {
+    changeToken(tokenOut, "IN");
+    changeToken(tokenIn, "OUT");
+  };
+
   const checkTokenAllowance = async (token) => {
     if (token.value === "BNB") {
       setEnoughAllowance(true);
@@ -200,7 +205,7 @@ const Swap = (props) => {
             value={amountIn}
           />
         </Card>
-        <div className={classes.arrows}>
+        <div onClick={switchSides} className={classes.arrows}>
           <img src={arrows} alt="arrow" />
         </div>
         <Card className={classes.card}>
