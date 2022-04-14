@@ -2,6 +2,7 @@ let initialState = {
   loading: "",
   userAddress: "",
   connectionType: "",
+  // signer: null,
   treasuryBalance: "",
   treasuryPrevBalance: "",
   buyFee: "",
@@ -26,6 +27,11 @@ let commonReducer = (state = initialState, action) => {
         connectionType: action.payload.connectionType,
         provider: action.payload.provider,
       };
+    // case "UPDATE_SIGNER":
+    //   return {
+    //     ...state,
+    //     signer: action.payload.signer,
+    //   };
     case "UPDATE_CONTRACT_NUMBERS":
       return {
         ...state,

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { tokenABI } from "../abi/sindicate";
@@ -8,6 +8,13 @@ import store from "../Redux/reduxStore";
 const updateUser = (payload) => {
   return {
     type: "UPDATE_USER",
+    payload: payload,
+  };
+};
+
+const updateSigner = (payload) => {
+  return {
+    type: "UPDATE_SIGNER",
     payload: payload,
   };
 };
@@ -82,7 +89,6 @@ export const getContractNumbers = () => {
 export const getUserNumbers = (userAddress) => {
   return async (dispatch) => {
     try {
-      console.log("userNumbers", userAddress);
       if (userAddress) {
         let taxBracket = await tokenInstance.getCurrentTaxBracket(userAddress);
         let balance = await tokenInstance.balanceOf(userAddress);
@@ -109,6 +115,8 @@ export const connectMetamask = () => {
       });
 
       let userAddress = accounts[0];
+
+      dispatch(getSigner());
 
       window.ethereum.on("accountsChanged", function (accounts) {
         dispatch(getUserNumbers(accounts[0]));
@@ -156,6 +164,8 @@ export const connectWalletConnect = () => {
       });
 
       await provider.enable();
+
+      dispatch(getSigner("WALLET_CONNECT", provider));
 
       const web3 = new Web3(provider);
 
@@ -215,6 +225,30 @@ export const disconnectWallet = () => {
       );
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+
+const getSigner = (walletType, provider) => {
+  return async (dispatch) => {
+    try {
+      let signer;
+      if (walletType === "WALLET_CONNECT") {
+        const web3Provider = new providers.Web3Provider(provider);
+
+        signer = await web3Provider.getSigner(0);
+      } else {
+        let newProvider = new ethers.providers.Web3Provider(window.ethereum);
+        signer = await newProvider.getSigner(0);
+      }
+
+      dispatch(
+        updateSigner({
+          signer,
+        })
+      );
+    } catch (error) {
+      console.log(error, "signer");
     }
   };
 };

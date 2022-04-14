@@ -2,6 +2,7 @@ import { combineReducers, applyMiddleware, createStore } from "redux";
 import thunkMiddleWare from "redux-thunk";
 import multi from "redux-multi";
 import commonReducer from "./commonReducer";
+import signerReducer from "./signerReducer";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -16,10 +17,12 @@ import {
 const persistConfig = {
   key: "counter",
   storage,
+  whitelist: ["common"],
 };
 
 let reducers = combineReducers({
   common: commonReducer,
+  signer: signerReducer,
   //   counter: counterSlice,
 });
 
