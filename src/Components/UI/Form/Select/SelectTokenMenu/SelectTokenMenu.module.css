@@ -1,0 +1,76 @@
+.main {
+    position: absolute;
+    width: 31.5vw;
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    z-index: 10;
+    padding: 24px;
+    padding-bottom: 0;
+    left: -15px;
+    top: 60px;
+    box-shadow: 0px 12px 48px 6px rgba(255, 255, 255, 0.32);
+}
+.main input {
+    padding: 0 24px !important;
+    font-size: 14px !important;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header h4 {
+    color: white;
+}
+.search {
+    width: 100%;
+    margin-top: 16px;
+}
+.search div {
+    height: 48px !important;
+}
+.wrapper {
+    margin-top: 24px;
+    max-height: 280px;
+    overflow-y: scroll;
+    padding-bottom: 24px;
+}
+
+@media screen and (max-width: 1366px) {
+    .main {
+        width: 30.5vw;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .main {
+        width: 29.4vw;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .main {
+       width: 75vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+       width: 79.5vw;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .main {
+       width: 70vw;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .main {
+       width: 65vw;
+    }
+}
+

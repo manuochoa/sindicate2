@@ -1,0 +1,106 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.main h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    margin-top: 40px;
+}
+.windows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 62px;
+    margin-top: 56px;
+}
+.main h4 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+.arrows {
+    border-radius: 50%;
+    background-color: #1E1E1E;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    padding-bottom: 36px;
+}
+.card > div + div {
+    margin-top: 32px;
+}
+.cost {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 56px;
+}
+.swap {
+    width: 530px;
+    height: 72px;
+    padding: 0 !important;
+    background-color: white !important;
+    font-family: 'Open Sans' !important;
+    color: black !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    text-transform: initial !important;
+    border-radius: 10px !important;
+    margin-top: 20px !important;
+}
+.select {
+    display: flex;
+    align-items: center;
+}
+.imgToken {
+    width: 26px;
+    height: 26px;
+    object-fit: cover;
+    margin-right: 11px;
+}   
+.select {
+    width: 100%;
+}
+.select input {
+    padding: 0 !important;
+}
+
+@media screen and (max-width: 1280px){
+    .main h2 {
+        margin-top: 30px;
+    }
+    .cost {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .main {
+        padding-bottom: 120px;
+    }
+    .windows {
+        display: flex;
+        flex-direction: column;
+    }
+    .cost {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .swap {
+        width: 100% !important;
+        height: 60px !important;
+    }
+    .windows {
+        gap: 15px;
+    }
+}

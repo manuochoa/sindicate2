@@ -1,0 +1,37 @@
+.main {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    padding: 12px 8px;
+    cursor: pointer;
+    transition-duration: .3s;
+    box-sizing: border-box;
+}
+.main:hover {
+    background-color: rgba(255, 255, 255, .05);
+}
+.img {
+    width: 33px;
+    height: 33px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.block p {
+    font-weight: 700;
+    font-size: 14px;
+}
+.block span {
+    opacity: .4;
+    font-weight: 400;
+    font-size: 12px;
+}
+.block + .block {
+    margin-left: auto;
+    align-items: flex-end;
+}

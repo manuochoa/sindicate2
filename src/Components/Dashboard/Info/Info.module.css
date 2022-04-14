@@ -1,0 +1,55 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    color: white;
+    height: 100%;
+}
+.section h4 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+.fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.field {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.field label {
+    opacity: .4;
+    font-weight: 400;
+    font-size: 14px;
+}
+.field span {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1280px) {
+    .main {
+        gap: 32px;
+    }
+    .field span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .section h4 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .field span, .field label {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,71 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    position: relative;
+}
+.main input {
+    color: rgba(255, 255, 255, .4) !important;
+}
+.onFocus input {
+    color: white !important;
+}
+.main label {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.adornmentText {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+.absoluteLabel {
+    color: white;
+    opacity: .4;
+    font-size: 12px !important;
+    position: absolute;
+    z-index: 2;
+    top: 35px;
+    left: 23px;
+    margin-bottom: 0;
+}
+.relativeInput input{
+    position: relative !important;
+    top: 7px !important;
+}
+.downLabelContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+.downLabelContainer label {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0;
+    opacity: .4;
+}
+.downLabelContainer p {
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+@media screen and (max-width: 414px) {
+    .adornmentText {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .adornmentText {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .adornmentText {
+        font-size: 10px;
+    }
+}

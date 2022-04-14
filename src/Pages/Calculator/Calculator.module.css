@@ -1,0 +1,39 @@
+.main {
+    width: 100%;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+.left {
+    width: 66%;
+}
+.right {
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media screen and (max-width: 1170px) {
+    .main {
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 100%;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .main {
+        gap: 16px;
+    }
+    .right {
+        gap: 16px;
+    }
+}

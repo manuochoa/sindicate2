@@ -1,0 +1,30 @@
+.main {
+    width: 100%;
+    position: relative;
+}
+.view {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.token {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    margin-right: 11px;
+}
+.arrow {
+    margin-left: 15px;
+    transition-duration: .3s;
+}
+.active {
+    transform: rotate(180deg);
+}
+.view label {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    top: 5px;
+    z-index: 0;
+}

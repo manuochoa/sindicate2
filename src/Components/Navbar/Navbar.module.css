@@ -1,0 +1,81 @@
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 12px;
+    height: 70px;
+}
+.links {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+.links a{
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    opacity: .4;
+    transition-duration: .3s;
+}
+.links a:hover {
+    opacity: .7;
+}
+.links a.active{
+    opacity: 1;
+}
+.connectBut {
+    width: 190px;
+    height: 48px;
+    padding: 0 !important;
+    font-family: 'Open Sans' !important;
+    background-color: white !important;
+    text-transform: initial !important;
+    color: black !important;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 12px !important;
+    position: absolute !important;
+    right: 0;
+}
+.logo {
+    position: absolute;
+    left: 0;
+}
+
+@media screen and (max-width: 1170px) {
+    .main {
+        position: fixed;
+        width: calc(100% - 160px);
+        background-color: black;
+        z-index: 32;
+        padding-bottom: 8px;
+    }
+    .links {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+      width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .main {
+      width: calc(100% - 30px);
+      padding-top: 8px;
+    }
+    .connectBut {
+        width: 153px;
+        height: 44px;
+    }
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+}
