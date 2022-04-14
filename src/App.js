@@ -11,15 +11,15 @@ import ConnectWalletModal from "./Components/ConnectWalletModal/ConnectWalletMod
 import { useDispatch, useSelector } from "react-redux";
 import {
   connectMetamask,
+  connectWalletConnect,
   getContractNumbers,
-  getUserNumbers,
 } from "./Redux/reduxActions";
 
 const App = () => {
   const [isShowWalletModal, setIsShowWalletModal] = useState(false);
   const dispatch = useDispatch();
-  let userAddress = useSelector((state) => state.common.userAddress);
-  let store = useSelector((state) => state.common);
+  // let userAddress = useSelector((state) => state.common.userAddress);
+  let { userAddress, connectionType } = useSelector((state) => state.common);
 
   const handleIsShowWalletModal = () => {
     setIsShowWalletModal(!isShowWalletModal);
@@ -27,10 +27,23 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getContractNumbers());
+    if (userAddress) {
+      switch (connectionType) {
+        case "metamask":
+          dispatch(connectMetamask());
+          break;
+        case "WALLET_CONNECT":
+          dispatch(connectWalletConnect());
+          break;
+
+        default:
+          break;
+      }
+    }
   }, []);
 
   useEffect(() => {
-    dispatch(getUserNumbers());
+    // dispatch(getUserNumbers());
     if (userAddress) {
       setIsShowWalletModal(false);
     }

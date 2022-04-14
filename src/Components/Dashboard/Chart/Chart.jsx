@@ -11,7 +11,7 @@ import useWindowDimensions from "../../../Hooks/useWindowDimension";
 import { useSelector } from "react-redux";
 
 const Chart = (props) => {
-  const { balance, usdPrice } = useSelector((state) => state.common);
+  let { balance, usdPrice } = useSelector((state) => state.common);
   const [chartSize, setChartSize] = useState([0, 0]);
 
   const { width, height } = useWindowDimensions();

@@ -79,10 +79,10 @@ export const getContractNumbers = () => {
   };
 };
 
-export const getUserNumbers = () => {
+export const getUserNumbers = (userAddress) => {
   return async (dispatch) => {
     try {
-      let { userAddress } = reduxStore;
+      console.log("userNumbers", userAddress);
       if (userAddress) {
         let taxBracket = await tokenInstance.getCurrentTaxBracket(userAddress);
         let balance = await tokenInstance.balanceOf(userAddress);
@@ -111,6 +111,7 @@ export const connectMetamask = () => {
       let userAddress = accounts[0];
 
       window.ethereum.on("accountsChanged", function (accounts) {
+        dispatch(getUserNumbers(accounts[0]));
         dispatch(
           updateUser({
             userAddress: accounts[0],
@@ -125,6 +126,7 @@ export const connectMetamask = () => {
       );
 
       if (userAddress) {
+        dispatch(getUserNumbers(userAddress));
         dispatch(
           updateUser({
             userAddress,
@@ -158,6 +160,19 @@ export const connectWalletConnect = () => {
       const web3 = new Web3(provider);
 
       const accounts = await web3.eth.getAccounts();
+
+      provider.on("accountsChanged", (accounts) => {
+        updateUser({
+          userAddress: accounts[0],
+          connectionType: "WALLET_CONNECT",
+          provider,
+        });
+      });
+
+      // Subscribe to session disconnection
+      provider.on("disconnect", (code, reason) => {
+        dispatch(disconnectWallet());
+      });
 
       if (accounts) {
         dispatch(

@@ -9,7 +9,7 @@ import gift_icon from "../../../Assets/Icons/gift.svg";
 import { useSelector } from "react-redux";
 
 const Balance = () => {
-  const { treasuryBalance, treasuryPrevBalance, usdPrice } = useSelector(
+  let { treasuryBalance, treasuryPrevBalance, usdPrice } = useSelector(
     (state) => state.common
   );
 
